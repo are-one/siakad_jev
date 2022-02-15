@@ -40,7 +40,7 @@ AppAsset::register($this);
          ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index'],'visible'=> !Yii::$app->user->isGuest],
          ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index'],'visible'=> !Yii::$app->user->isGuest],
          ['label' => 'Tentang', 'url' => ['/site/about']],
-         ['label' => 'Contact', 'url' => ['/site/contact']],
+         // ['label' => 'Contact', 'url' => ['/site/contact']],
      ];
      if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Daftar', 'url' => ['/site/signup']];

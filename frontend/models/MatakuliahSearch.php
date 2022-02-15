@@ -4,7 +4,7 @@ namespace frontend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Matakuliah;
+use frontend\models\Matakuliah;
 
 /**
  * MatakuliahSearch represents the model behind the search form of `app\models\Matakuliah`.

@@ -29,6 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'nip',
             'nama_dosen',
+            [
+                'attribute' => 'id_jk',
+                'label' => 'Jenis Kelamin',
+                'value' => function($model)
+                {
+                    return $model->jk->jenis_kelamin;
+                }
+            ],
+            [
+                'attribute' => 'id_agama',
+                'label' => 'agama',
+                'value' => function($model)
+                {
+                    return $model->agama->agama;
+                }
+            ],
             'no_telp',
             'alamat:ntext',
             [

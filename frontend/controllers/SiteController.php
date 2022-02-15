@@ -16,6 +16,11 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 
+use frontend\models\Dosen;
+use frontend\models\Mahasiswa;
+use frontend\models\Matakuliah;
+
+
 /**
  * Site controller
  */
@@ -75,7 +80,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $jumlah_dosen=Dosen::find()->count();
+        $jumlah_mhs=Mahasiswa::find()->count();
+        $jumlah_mk=Matakuliah::find()->count();
+        return $this->render('index',[
+            'jum_dosen'=>$jumlah_dosen,
+            'jum_mhs'=>$jumlah_mhs,
+            'jum_mk'=>$jumlah_mk
+        ]);
     }
 
     /**

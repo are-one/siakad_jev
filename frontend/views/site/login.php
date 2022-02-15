@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-info', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton('Masuk', ['class' => 'btn btn-info', 'name' => 'login-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

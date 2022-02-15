@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use app\models\Matakuliah;
+use frontend\models\Matakuliah;
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\MatakuliahSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
