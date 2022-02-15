@@ -7,7 +7,7 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
-use app\models\Mahasiswa;
+use frontend\models\Mahasiswa;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\MahasiswaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -27,13 +27,29 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'nim',
             'nama_mhs',
             'angkatan',
+            [
+                'attribute' => 'id_jk',
+                'label' => 'Jenis Kelamin',
+                'value' => function($model)
+                {
+                    return $model->jk->jenis_kelamin;
+                }
+            ],
+           [
+                'attribute' => 'id_agama',
+                'label' => 'agama',
+                'value' => function($model)
+                {
+                    return $model->agama->agama;
+                }
+            ],
             'alamat:ntext',
             'email:email',
             [

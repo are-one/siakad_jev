@@ -36,15 +36,18 @@ AppAsset::register($this);
         ]);
         $menuItems = [
            ['label' => 'Home', 'url' => ['/site/index']],
-           ['label' => 'Dosen', 'url' => ['/dosen/index']],
-           ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index']],
-            ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index']],
-           ['label' => 'About', 'url' => ['/site/about']],
-           ['label' => 'Contact', 'url' => ['/site/contact']],
-       ];
-       if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+
+           ['label' => 'Master Data', 'url' => ['#'],'visible'=> !Yii::$app->user->isGuest, 'items' => [
+             ['label' => 'Dosen', 'url' => ['/dosen/index'],'visible'=> !Yii::$app->user->isGuest],
+             ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index'],'visible'=> !Yii::$app->user->isGuest],
+             ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index'],'visible'=> !Yii::$app->user->isGuest],
+         ]],
+         ['label' => 'Tentang', 'url' => ['/site/about']],
+         // ['label' => 'Contact', 'url' => ['/site/contact']],
+     ];
+     if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Daftar', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Masuk', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])

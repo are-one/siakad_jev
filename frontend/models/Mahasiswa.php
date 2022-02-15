@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -15,7 +15,7 @@ use Yii;
 class Mahasiswa extends \yii\db\ActiveRecord
 {
 
- public $imageFile;
+   public $imageFile;
     /**
      * {@inheritdoc}
      */
@@ -38,6 +38,9 @@ class Mahasiswa extends \yii\db\ActiveRecord
             [['email'], 'string', 'max' => 50],
             [['nim'], 'unique'],
 
+            [['id_agama'], 'exist', 'skipOnError' => true, 'targetClass' => TblAgama::className(), 'targetAttribute' => ['id_agama' => 'id_agama']],
+            [['id_jk'], 'exist', 'skipOnError' => true, 'targetClass' => TblJk::className(), 'targetAttribute' => ['id_jk' => 'id_jk']],
+
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
@@ -51,6 +54,8 @@ class Mahasiswa extends \yii\db\ActiveRecord
             'nim' => 'Nim',
             'nama_mhs' => 'Nama Mahasiswa',
             'angkatan' => 'Angkatan',
+            'id_jk' => 'Jenis Kelamin',
+            'id_agama' => 'Agama',
             'alamat' => 'Alamat',
             'email' => 'Email',
             'imageFile' => 'Upload Foto',
@@ -65,5 +70,20 @@ class Mahasiswa extends \yii\db\ActiveRecord
         } else {
             return false;
         }
+    }
+
+    public function getAgama()
+    {
+        return $this->hasOne(TblAgama::className(), ['id_agama' => 'id_agama']);
+    }
+
+    /**
+     * Gets query for [[Jk]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getJk()
+    {
+        return $this->hasOne(TblJk::className(), ['id_jk' => 'id_jk']);
     }
 }

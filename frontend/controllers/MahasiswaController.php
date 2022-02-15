@@ -2,8 +2,8 @@
 
 namespace frontend\controllers;
 
-use app\models\Mahasiswa;
-use app\models\MahasiswaSearch;
+use frontend\models\Mahasiswa;
+use frontend\models\MahasiswaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

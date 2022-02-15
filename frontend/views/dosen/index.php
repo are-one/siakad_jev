@@ -26,12 +26,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'nip',
             'nama_dosen',
+            [
+                'attribute' => 'id_jk',
+                'label' => 'Jenis Kelamin',
+                'value' => function($model)
+                {
+                    return $model->jk->jenis_kelamin;
+                }
+            ],
+            [
+                'attribute' => 'id_agama',
+                'label' => 'Agama',
+                'value' => function($model)
+                {
+                    return $model->agama->agama;
+                }
+            ],
             'no_telp',
             'alamat:ntext',
             [
