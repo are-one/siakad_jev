@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'nim',
             'nama_mhs',
+            'angkatan',
             'alamat:ntext',
             'email:email',
             [

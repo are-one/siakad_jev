@@ -16,6 +16,8 @@ use yii\bootstrap4\ActiveForm;
 
 	<?= $form->field($model, 'nama_mhs')->textInput(['maxlength' => true]) ?>
 
+	<?= $form->field($model, 'angkatan')->textInput(['maxlength' => true]) ?>
+
 	<?= $form->field($model, 'alamat')->textarea(['rows' => 6]) ?>
 
 	<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
