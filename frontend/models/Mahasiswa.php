@@ -30,14 +30,15 @@ class Mahasiswa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nim', 'nama_mhs', 'alamat', 'email', 'foto'], 'required','message'=> '{attribute} wajib di isi !!!'],
+            [['nim', 'nama_mhs', 'angkatan', 'alamat', 'email'], 'required','message'=> '{attribute} wajib di isi !!!'],
             [['alamat'], 'string'],
             [['nim'], 'string', 'max' => 20],
             [['nama_mhs'], 'string', 'max' => 80],
+            [['angkatan'], 'integer', 'min' => 4],
             [['email'], 'string', 'max' => 50],
             [['nim'], 'unique'],
 
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 
@@ -49,6 +50,7 @@ class Mahasiswa extends \yii\db\ActiveRecord
         return [
             'nim' => 'Nim',
             'nama_mhs' => 'Nama Mahasiswa',
+            'angkatan' => 'Angkatan',
             'alamat' => 'Alamat',
             'email' => 'Email',
             'imageFile' => 'Upload Foto',
