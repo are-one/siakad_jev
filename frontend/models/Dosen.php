@@ -54,7 +54,7 @@ class Dosen extends \yii\db\ActiveRecord
             'no_telp' => 'No Telp',
             'alamat' => 'Alamat',
             'foto' => 'Foto',
-            'imageFile' => 'Upload Foto Pegawai',
+            'imageFile' => 'Upload Foto Dosen',
         ];
     }
 
