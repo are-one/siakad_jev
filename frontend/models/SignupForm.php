@@ -52,6 +52,7 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
+        $user->status = 10;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
@@ -67,14 +68,14 @@ class SignupForm extends Model
     protected function sendEmail($user)
     {
         return Yii::$app
-            ->mailer
-            ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $user]
-            )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
-            ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
-            ->send();
+        ->mailer
+        ->compose(
+            ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+            ['user' => $user]
+        )
+        ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+        ->setTo($this->email)
+        ->setSubject('Account registration at ' . Yii::$app->name)
+        ->send();
     }
 }

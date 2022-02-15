@@ -35,10 +35,13 @@ AppAsset::register($this);
             ],
         ]);
         $menuItems = [
-         ['label' => 'Home', 'url' => ['/site/index']],
-         ['label' => 'Dosen', 'url' => ['/dosen/index'],'visible'=> !Yii::$app->user->isGuest],
-         ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index'],'visible'=> !Yii::$app->user->isGuest],
-         ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index'],'visible'=> !Yii::$app->user->isGuest],
+           ['label' => 'Home', 'url' => ['/site/index']],
+
+           ['label' => 'Master Data', 'url' => ['#'],'visible'=> !Yii::$app->user->isGuest, 'items' => [
+             ['label' => 'Dosen', 'url' => ['/dosen/index'],'visible'=> !Yii::$app->user->isGuest],
+             ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index'],'visible'=> !Yii::$app->user->isGuest],
+             ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index'],'visible'=> !Yii::$app->user->isGuest],
+         ]],
          ['label' => 'Tentang', 'url' => ['/site/about']],
          // ['label' => 'Contact', 'url' => ['/site/contact']],
      ];
