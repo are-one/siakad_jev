@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use app\models\Matakuliah;
+use frontend\models\Matakuliah;
 use frontend\models\MatakuliahSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

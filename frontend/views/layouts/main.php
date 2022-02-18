@@ -35,35 +35,36 @@ AppAsset::register($this);
             ],
         ]);
         $menuItems = [
-           ['label' => 'Home', 'url' => ['/site/index']],
+         ['label' => 'Home', 'url' => ['/site/index']],
 
-           ['label' => 'Master Data', 'url' => ['#'],'visible'=> !Yii::$app->user->isGuest, 'items' => [
-             ['label' => 'Dosen', 'url' => ['/dosen/index'],'visible'=> !Yii::$app->user->isGuest],
-             ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index'],'visible'=> !Yii::$app->user->isGuest],
-             ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index'],'visible'=> !Yii::$app->user->isGuest],
-         ]],
-         ['label' => 'Tentang', 'url' => ['/site/about']],
+         ['label' => 'Master Data', 'url' => ['#'],'visible'=> !Yii::$app->user->isGuest, 'items' => [
+           ['label' => 'Dosen', 'url' => ['/dosen/index'],'visible'=> !Yii::$app->user->isGuest],
+           ['label' => 'Mahasiswa', 'url' => ['/mahasiswa/index'],'visible'=> !Yii::$app->user->isGuest],
+           ['label' => 'Mata Kuliah', 'url' => ['/matakuliah/index'],'visible'=> !Yii::$app->user->isGuest],
+       ]],
+       ['label' => 'Tentang', 'url' => ['/site/about']],
+       ['label' => 'Pengaturan', 'url' => ['/pengaturan/index'],'visible'=> !Yii::$app->user->isGuest],
          // ['label' => 'Contact', 'url' => ['/site/contact']],
-     ];
-     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Daftar', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Masuk', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-        . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-        . Html::submitButton(
-            'Logout (' . Yii::$app->user->identity->username . ')',
-            ['class' => 'btn btn-link logout']
-        )
-        . Html::endForm()
-        . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav ml-auto'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+   ];
+   if (Yii::$app->user->isGuest) {
+    $menuItems[] = ['label' => 'Daftar', 'url' => ['/site/signup']];
+    $menuItems[] = ['label' => 'Masuk', 'url' => ['/site/login']];
+} else {
+    $menuItems[] = '<li>'
+    . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
+    . Html::submitButton(
+        'Logout (' . Yii::$app->user->identity->username . ')',
+        ['class' => 'btn btn-link logout']
+    )
+    . Html::endForm()
+    . '</li>';
+}
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav ml-auto'],
+    'items' => $menuItems,
+]);
+NavBar::end();
+?>
 </header>
 
 <main role="main" class="flex-shrink-0">
